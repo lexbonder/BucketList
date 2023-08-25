@@ -14,6 +14,19 @@ struct ContentView: View {
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
             Text("Hello, world!")
+                .onTapGesture {
+                    let str = "I did the thing!"
+                    
+                    FileManager.default.store(content: str, inFile: "message.txt")
+                    
+                    do {
+                        if let input: String = try FileManager.default.retrieve(String.self, from: "message.txt") {
+                            print(input)
+                        }
+                    } catch {
+                        print(error.localizedDescription)
+                    }
+                }
         }
         .padding()
     }

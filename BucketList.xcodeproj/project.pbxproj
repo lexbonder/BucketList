@@ -11,6 +11,7 @@
 		8B32525C2A98DC690033D95C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B32525B2A98DC690033D95C /* ContentView.swift */; };
 		8B32525E2A98DC6B0033D95C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B32525D2A98DC6B0033D95C /* Assets.xcassets */; };
 		8B3252612A98DC6B0033D95C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B3252602A98DC6B0033D95C /* Preview Assets.xcassets */; };
+		8B3252682A98F0FC0033D95C /* FileManager-DocumentDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3252672A98F0FC0033D95C /* FileManager-DocumentDirectory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		8B32525B2A98DC690033D95C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8B32525D2A98DC6B0033D95C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B3252602A98DC6B0033D95C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8B3252672A98F0FC0033D95C /* FileManager-DocumentDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager-DocumentDirectory.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				8B3252592A98DC690033D95C /* BucketListApp.swift */,
 				8B32525B2A98DC690033D95C /* ContentView.swift */,
+				8B3252672A98F0FC0033D95C /* FileManager-DocumentDirectory.swift */,
 				8B32525D2A98DC6B0033D95C /* Assets.xcassets */,
 				8B32525F2A98DC6B0033D95C /* Preview Content */,
 			);
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B32525C2A98DC690033D95C /* ContentView.swift in Sources */,
+				8B3252682A98F0FC0033D95C /* FileManager-DocumentDirectory.swift in Sources */,
 				8B32525A2A98DC690033D95C /* BucketListApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
