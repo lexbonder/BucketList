@@ -18,6 +18,8 @@ extension ContentView {
         @Published private(set) var locations: [Location]
         @Published var selectedPlace: Location?
         @Published var isUnlocked = false
+        @Published var isShowingAlert = false
+        @Published var alertMessage = ""
         
         let savePath = FileManager.documentsDirectory.appendingPathComponent("SavedPlaces")
         
@@ -64,21 +66,35 @@ extension ContentView {
         func authenticate() {
             let context = LAContext()
             var error: NSError?
+            let reason = "Please authenticate yourself to unlock your places."
             
             if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-                let reason = "Please authenticate yourself to unlock your places."
                 
                 context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authError in
-                    if success {
-                        Task { @MainActor in
-                            self.isUnlocked = true
-                        }
-                    } else {
-                        // do something else
-                    }
+                    self.handleAuthResult(success: success, authError: authError)
                 }
             } else {
-                // No biometrics
+                print("Device has no biometrics saved")
+                if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
+                    context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) { success, authError in
+                        self.handleAuthResult(success: success, authError: authError)
+                    }
+                } else {
+                    print("no password?!")
+                }
+            }
+        }
+        
+        func handleAuthResult(success: Bool, authError: Error?) {
+            if success {
+                Task { @MainActor in
+                    self.isUnlocked = true
+                }
+            } else {
+                Task { @MainActor in
+                    self.isShowingAlert = true
+                    self.alertMessage = authError?.localizedDescription ?? "Authentication Failed."
+                }
             }
         }
     }
